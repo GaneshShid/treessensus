@@ -1,0 +1,92 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/bootstrap")
+   
+    <style>
+        #bd {
+            background: #e8cbc0;
+            background: -webkit-linear-gradient(to right, #e8cbc0, #636fa4);
+            background: linear-gradient(to right, #e8cbc0, #636fa4);
+        }
+    </style>
+    
+</head>
+<body id="bd">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                @using (Html.BeginForm())
+                    {
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center">Login Here</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <input type="email" name="txtemail" class="form-control" placeholder="enter email address" required="required" />
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" name="txtpassword" class="form-control" placeholder="enter password" required />
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <input type="submit" value="Submit" class="btn btn-primary" />
+                                <button class="btn btn-info"><a href="/Login/AddUser" style="text-decoration:none">Register Here</a></button>
+                                <p style="color:red">@ViewBag.msg</p>
+                            </div>
+                        </div>
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+    @*<div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Login</div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="email">Email address:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+</body>
+</html>

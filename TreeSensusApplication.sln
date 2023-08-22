@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeSensusApplication", "TreeSensusApplication\TreeSensusApplication.csproj", "{7408664F-AA14-420E-99BC-91BDC750D42B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7408664F-AA14-420E-99BC-91BDC750D42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7408664F-AA14-420E-99BC-91BDC750D42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7408664F-AA14-420E-99BC-91BDC750D42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7408664F-AA14-420E-99BC-91BDC750D42B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {901946CE-6FC8-47C1-9E87-7F58A87B028A}
+	EndGlobalSection
+EndGlobal

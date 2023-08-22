@@ -1,0 +1,90 @@
+﻿@model TreeSensusApplication.Models.tbl_Tree_Details
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddData</title>
+
+</head>
+<body>
+
+    <div>
+
+        <h2>this is the add tree view</h2>
+        <h4>@Session["eml"].ToString()</h4>
+        <h4>@Session["pss"].ToString()</h4>
+        @using (Html.BeginForm())
+        {
+
+
+            <table>
+                <tr>
+                    <td>Ward no</td>
+                    <td>@Html.TextBoxFor(e => e.ward_no)</td>
+                </tr>
+                <tr>
+                    <td>Tree species</td>
+                    <td>@Html.TextBoxFor(e => e.tree_species)</td>
+                </tr>
+                <tr>
+                    <td>Photo</td>
+                    <td>@Html.TextBoxFor(e => e.photo)</td>
+                </tr>
+                <tr>
+                    <td>local name</td>
+                    <td>@Html.TextBoxFor(e => e.local_name)</td>
+                </tr>
+                <tr>
+                    <td>lattitude</td>
+                    <td>@Html.TextBoxFor(e => e.lattitude)</td>
+                </tr>
+                <tr>
+                    <td>longitude</td>
+                    <td>@Html.TextBoxFor(e => e.longitude)</td>
+                </tr>
+                <tr>
+                    <td>Ward no</td>
+                    <td>@Html.TextBoxFor(e => e.ward_no)</td>
+                </tr>
+                <tr>
+                    <td>height in feet</td>
+                    <td>@Html.TextBoxFor(e => e.height_in_feet)</td>
+                </tr>
+                <tr>
+                    <td>canopy in feet</td>
+                    <td>@Html.TextBoxFor(e => e.canopy_in_feet)</td>
+                </tr>
+                <tr>
+                    <td>avarate tree age</td>
+                    <td>@Html.TextBoxFor(e => e.avg_tree_age)</td>
+                </tr>
+                <tr>
+                    <td>tree status</td>
+                    <td>@Html.TextBoxFor(e => e.tree_status)</td>
+                </tr>
+                <tr>
+                    <td>ownership</td>
+                    <td>@Html.TextBoxFor(e => e.ownership)</td>
+                </tr>
+                <tr>
+                    <td>owner name</td>
+                    <td>@Html.TextBoxFor(e => e.owner_name)</td>
+                </tr>
+                <tr>
+                    <td>owner contact</td>
+                    <td>@Html.TextBoxFor(e => e.owner_contact)</td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="submit" /></td>
+                </tr>
+            </table>
+
+        }
+    </div>
+</body>
+</html>

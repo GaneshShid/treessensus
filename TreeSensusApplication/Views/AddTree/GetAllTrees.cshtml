@@ -1,0 +1,127 @@
+﻿@model IEnumerable<TreeSensusApplication.Models.tbl_Tree_Details>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetAllTrees</title>
+</head>
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/bootstrap")
+<body>
+
+    @*<div class="container">
+        <h4>Your Trees Details</h4>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>userid</th>
+                        <th>ward no</th>
+                        <th>tree species</th>
+                        <th>Number of Trees</th>
+                        <th>tree Photo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var data in Model)
+                    {
+                        <tr>
+                            <td>@data.user_id</td>
+                            <td>@data.ward_no</td>
+                            <td>@data.tree_species</td>
+                            <td>@data.num_of_tree</td>
+                            <td><img src="~/TreePhotos/@data.photo" height="100" width="100" /></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>*@
+    
+
+
+
+
+
+    <div class=" card mytbl border border-info">
+        <div class="card-header">
+            <h4 class="text-center">All Trees</h4>
+        </div>
+        <div class="table-responsive">
+            <table class=" card-body  table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Ward No.</th>
+                        <th>tree count</th>
+                        <th>tree species</th>
+                        <th>photo</th>
+                        <th>local name</th>
+                        <th>lattitude</th>
+                        <th>ongitude</th>
+                        <th>height</th>
+                        <th>canopy</th>
+                        <th>tree age</th>
+                        <th>status</th>
+                        <th>Ownership</th>
+                        <th>owner name</th>
+                        <th>owner contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i = 1;
+                    }
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.ward_no</td>
+                            <td>@item.num_of_tree</td>
+                            <td>@item.tree_species</td>
+                            <td><img src="~/TreePhotos/@item.photo" height="100" width="100" /></td>
+                            <td>@item.local_name</td>
+                            <td>@item.lattitude</td>
+                            <td>@item.longitude</td>
+                            <td>@item.height_in_feet</td>
+                            <td>@item.canopy_in_feet</td>
+                            <td>@item.avg_tree_age</td>
+                            <td>@item.tree_status</td>
+                            <td>@item.ownership</td>
+                            <td>@item.owner_name</td>
+                            <td>@item.owner_contact</td>
+                            
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer text-white" text-align:center">
+            Scroll Up...!
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+</html>

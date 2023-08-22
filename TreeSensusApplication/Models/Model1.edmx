@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Tree_Sensus_Report_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Tree_Details">
+          <Key>
+            <PropertyRef Name="details_id" />
+          </Key>
+          <Property Name="details_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="ward_no" Type="int" />
+          <Property Name="tree_species" Type="varchar" MaxLength="100" />
+          <Property Name="photo" Type="varchar" MaxLength="100" />
+          <Property Name="local_name" Type="varchar" MaxLength="100" />
+          <Property Name="lattitude" Type="varchar" MaxLength="100" />
+          <Property Name="longitude" Type="varchar" MaxLength="100" />
+          <Property Name="height_in_feet" Type="int" />
+          <Property Name="canopy_in_feet" Type="int" />
+          <Property Name="avg_tree_age" Type="int" />
+          <Property Name="tree_status" Type="varchar" MaxLength="100" />
+          <Property Name="ownership" Type="varchar" MaxLength="100" />
+          <Property Name="owner_name" Type="varchar" MaxLength="100" />
+          <Property Name="owner_contact" Type="varchar" MaxLength="100" />
+          <Property Name="num_of_tree" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_User_Details">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="gender" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="user_details_fk">
+          <End Role="tbl_User_Details" Type="Self.tbl_User_Details" Multiplicity="0..1" />
+          <End Role="tbl_Tree_Details" Type="Self.tbl_Tree_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User_Details">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="tbl_Tree_Details">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Tree_Sensus_Report_DBModelStoreContainer">
+          <EntitySet Name="tbl_Tree_Details" EntityType="Self.tbl_Tree_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_User_Details" EntityType="Self.tbl_User_Details" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="user_details_fk" Association="Self.user_details_fk">
+            <End Role="tbl_User_Details" EntitySet="tbl_User_Details" />
+            <End Role="tbl_Tree_Details" EntitySet="tbl_Tree_Details" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Tree_Sensus_Report_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_User_Details">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_Tree_Details" Relationship="Tree_Sensus_Report_DBModel.user_details_fk" FromRole="tbl_User_Details" ToRole="tbl_Tree_Details" />
+        </EntityType>
+        <EntityContainer Name="Tree_Sensus_Report_DBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_User_Details" EntityType="Self.tbl_User_Details" />
+          <EntitySet Name="tbl_Tree_Details" EntityType="Tree_Sensus_Report_DBModel.tbl_Tree_Details" />
+          <AssociationSet Name="user_details_fk" Association="Tree_Sensus_Report_DBModel.user_details_fk">
+            <End Role="tbl_User_Details" EntitySet="tbl_User_Details" />
+            <End Role="tbl_Tree_Details" EntitySet="tbl_Tree_Details" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbl_Tree_Details">
+          <Key>
+            <PropertyRef Name="details_id" />
+          </Key>
+          <Property Name="details_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="ward_no" Type="Int32" />
+          <Property Name="tree_species" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="photo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="local_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lattitude" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="longitude" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="height_in_feet" Type="Int32" />
+          <Property Name="canopy_in_feet" Type="Int32" />
+          <Property Name="avg_tree_age" Type="Int32" />
+          <Property Name="tree_status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ownership" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="owner_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="owner_contact" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="num_of_tree" Type="Int32" />
+          <NavigationProperty Name="tbl_User_Details" Relationship="Tree_Sensus_Report_DBModel.user_details_fk" FromRole="tbl_Tree_Details" ToRole="tbl_User_Details" />
+        </EntityType>
+        <Association Name="user_details_fk">
+          <End Type="Tree_Sensus_Report_DBModel.tbl_User_Details" Role="tbl_User_Details" Multiplicity="0..1" />
+          <End Type="Tree_Sensus_Report_DBModel.tbl_Tree_Details" Role="tbl_Tree_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User_Details">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="tbl_Tree_Details">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Tree_Sensus_Report_DBModelStoreContainer" CdmEntityContainer="Tree_Sensus_Report_DBEntities1">
+          <EntitySetMapping Name="tbl_User_Details">
+            <EntityTypeMapping TypeName="Tree_Sensus_Report_DBModel.tbl_User_Details">
+              <MappingFragment StoreEntitySet="tbl_User_Details">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Tree_Details">
+            <EntityTypeMapping TypeName="Tree_Sensus_Report_DBModel.tbl_Tree_Details">
+              <MappingFragment StoreEntitySet="tbl_Tree_Details">
+                <ScalarProperty Name="num_of_tree" ColumnName="num_of_tree" />
+                <ScalarProperty Name="owner_contact" ColumnName="owner_contact" />
+                <ScalarProperty Name="owner_name" ColumnName="owner_name" />
+                <ScalarProperty Name="ownership" ColumnName="ownership" />
+                <ScalarProperty Name="tree_status" ColumnName="tree_status" />
+                <ScalarProperty Name="avg_tree_age" ColumnName="avg_tree_age" />
+                <ScalarProperty Name="canopy_in_feet" ColumnName="canopy_in_feet" />
+                <ScalarProperty Name="height_in_feet" ColumnName="height_in_feet" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="lattitude" ColumnName="lattitude" />
+                <ScalarProperty Name="local_name" ColumnName="local_name" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="tree_species" ColumnName="tree_species" />
+                <ScalarProperty Name="ward_no" ColumnName="ward_no" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="details_id" ColumnName="details_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

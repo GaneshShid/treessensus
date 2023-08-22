@@ -1,0 +1,290 @@
+﻿@model TreeSensusApplication.Models.tbl_Tree_Details
+@{
+    ViewBag.Title = "AddData";
+    Layout = null;
+}
+@{
+    string uid = Session["userid"].ToString();
+}
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/bootstrap")
+
+<style>
+    #bd {
+        background: #e8cbc0;
+        background: -webkit-linear-gradient(to right, #e8cbc0, #636fa4);
+        background: linear-gradient(to right, #e8cbc0, #636fa4);
+        
+    }
+    #bg{
+
+        
+        width:100%;
+        height:auto;
+        background-image:url("/TreeBg/treebg.jpg");
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-size:cover;
+    }
+</style>
+
+
+
+<div id="bg">
+    @Html.ActionLink("ViewTrees", "GetAllTrees", "AddTree")
+    <br />
+    @Html.ActionLink("LogOut", "Logout", "Login")
+    <div class="container mt-5" id="bg">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+
+                <form action="/AddTree/AddData" method="post" enctype="multipart/form-data">
+                    <div class="card">
+                        <div class="card-header text-center bg-secondary">
+                            <h2>New Entry</h2>
+                        </div>
+                        <div class="card-body" id="bd">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="User Id" class="form-label">User Id</label>
+                                        @Html.TextBoxFor(e => e.user_id, new { @Value=uid, @class = "form-control" ,disabled="disables" });
+                                        @*<input type="text" value=@Session["userid"].ToString() ; class="form-control" />*@
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Ward No" class="form-label">Ward Number</label>
+                                        @Html.TextBoxFor(e => e.ward_no, new { @class = "form-control" })
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Ward No" class="form-label">Number Of Trees</label>
+                                        @Html.TextBoxFor(e => e.num_of_tree, new { @class = "form-control" })
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="Tree Species" class="form-label">Tree Species</label>
+                                        @Html.TextBoxFor(e => e.tree_species, new { @class = "form-control" })
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Tree Photo" class="form-label">Choose Photo</label>
+                                        @*@Html.TextBoxFor(e => e.photo, new { @class = "form-control" })*@
+                                        <input type="file" name="photo" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="Local Name" class="form-label">Local Name</label>
+                                        @Html.TextBoxFor(e => e.local_name, new { @class = "form-control" })
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Lattitude" class="form-label">Lattitude</label>
+                                        @Html.TextBoxFor(e => e.lattitude, new { @class = "form-control" })
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Longitude" class="form-label">Longitude</label>
+                                        @Html.TextBoxFor(e => e.longitude, new { @class = "form-control" })
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Height In feet" class="form-label">Height In Feet</label>
+                                        @Html.TextBoxFor(e => e.height_in_feet, new { @class = "form-control" })
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Canopy In Feet" class="form-label">Canopy IN Feet</label>
+                                        @Html.TextBoxFor(e => e.canopy_in_feet, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="Avg Tree Age" class="form-label">Avarage Tree Age</label>
+                                        @Html.TextBoxFor(e => e.avg_tree_age, new { @class = "form-control" })
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Tree Status" class="form-label">Tree Status</label>
+                                        @Html.DropDownListFor(e => e.tree_status, ViewBag.status as List<SelectListItem>, "Select Status", new { @class = "form-control" })
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Ownership" class="form-label">Ownership</label>
+                                        @Html.DropDownListFor(e => e.ownership, ViewBag.ownership as List<SelectListItem>, "Select Ownership", new { @class = "form-control" })
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Owner Name" class="form-label">Owner Name</label>
+                                        @Html.TextBoxFor(e => e.owner_name, new { @class = "form-control" })
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Contact" class="form-label">Contact Number</label>
+                                        @Html.TextBoxFor(e => e.owner_contact, new { @class = "form-control" })
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-secondary">
+                            <input type="submit" value="submit" class="btn btn-primary" />
+                        </div>
+                    </div>
+
+
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="row">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    @using (Html.BeginForm())
+                    {
+
+                        <div class="card" style="height:auto;width:auto">
+
+                            <div class="card-header" style="background-color: #FBEAEB">
+                                <h4 class="text-center"> Add New Student.</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="mb-2">Student Name</label>
+                                            @Html.TextBoxFor(e => e.user_id, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="mb-2">Email Address</label>
+                                            @Html.TextBoxFor(e => e.ward_no, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="mb-2">tree species</label>
+                                            @Html.TextBoxFor(e => e.tree_species, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="mb-2">Student Photo</label>
+                                            @Html.TextBoxFor(e => e.photo, new { @class = "form-control" })
+                                            <input type="file" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="mb-2">Gender</label>
+                                            @Html.TextBoxFor(e => e.local_name, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="mb-2">Local Address</label>
+                                            @Html.TextBoxFor(e => e.lattitude, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="mb-2">City</label>
+                                            @Html.TextBoxFor(e => e.longitude, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="mb-2">Student Photo</label>
+                                            @Html.TextBoxFor(e => e.photo, new { @class = "form-control" })
+                                            <input type="file" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="mb-2">Enter Password</label>
+                                            @Html.TextBoxFor(e => e.height_in_feet, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                                </div>
+
+
+                            </div>
+                            <div class="card-footer" style="background-color: #990011">
+                                <input type="submit" value="submit" class="btn btn-primary" />
+                                <br />
+                                <h4>@ViewBag.msg</h4>
+                            </div>
+
+                        </div>
+
+
+                    }
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+
+            <br />
+            <div class=" card mytbl border border-info">
+                <div class="card-header" style="background-color: #FBEAEB">
+                    <h4 class="text-center">All Students.</h4>
+                </div>
+                <div class="table-responsive">
+                    <table class=" card-body  table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Sr No</th>
+                                <th>Student Name</th>
+                                <th>Email</th>
+                                <th>Mobile Number</th>
+                                <th>Birth Date</th>
+                                <th>Gender</th>
+                                <th>Local Address</th>
+                                <th>City</th>
+                                <th>Photo</th>
+                                <th>Password</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int i = 1;
+                            }
+
+                            @foreach (var item in ViewBag.stud)
+                            {
+                                <tr>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer text-white" style="background-color: #990011;text-align:center">
+                    Scroll Up...!
+                </div>
+            </div>
+        </div>
+
+
+    </div>*@
+
