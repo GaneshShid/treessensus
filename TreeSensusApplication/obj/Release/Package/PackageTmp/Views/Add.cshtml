@@ -1,0 +1,64 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            console.log("ganesh");
+            var mid = 2
+            console.log(mid);
+            DisplayData();
+        })
+        function DisplayData() {
+            $.ajax({
+                url: 'api/getbyid/',
+                method: 'get',
+                contentType: 'application/json',
+                success: function (resp) {
+                    console.log(resp);
+                    $("#tbldata").empty();
+                    $.each(resp, function (i, d) {
+                        $("#tbldata").append("<tr><td>" + d.details_id + "</td><td>" + d.user_id + "</td><td>" + d.ward_no + "</td><td>" + d.tree_species + "</td><td>" + d.photo + "</td><td>" + d.local_name + "</td><td>" + d.lattitude + "</td><td>" + d.longitude + "</td><td>" + d.height_in_feet + "</td><td>" + d.canopy_in_feet + "</td><td>" + d.avb_tree_age + "</td><td>" + d.tree_status + "</td><td>" + d.ownership + "</td><td>" + d.owner_name + "</td><td>" + d.owner_contact+"</td></tr>")
+                    })
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+
+                    <th>details id</th>
+                    <th>user id</th>
+                    <th>ward no</th>
+                    <th>tree species</th>
+                    <th>photo</th>
+                    <th>local name</th>
+                    <th>lattitude</th>
+                    <th>longitude</th>
+                    <th>hieght in feet</th>
+                    <th>canopy in feet</th>
+                    <th>avg tree age </th>
+                    <th>tree status</th>
+                    <th>ownership</th>
+                    <th>owner name</th>
+                    <th>owner contact</th>
+                </tr>
+            </thead>
+            <tbody id="tbldata">
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

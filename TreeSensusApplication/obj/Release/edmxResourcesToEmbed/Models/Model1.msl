@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Tree_Sensus_Report_DBModelStoreContainer" CdmEntityContainer="Tree_Sensus_Report_DBEntities1">
+    <EntitySetMapping Name="tbl_User_Details">
+      <EntityTypeMapping TypeName="Tree_Sensus_Report_DBModel.tbl_User_Details">
+        <MappingFragment StoreEntitySet="tbl_User_Details">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Tree_Details">
+      <EntityTypeMapping TypeName="Tree_Sensus_Report_DBModel.tbl_Tree_Details">
+        <MappingFragment StoreEntitySet="tbl_Tree_Details">
+          <ScalarProperty Name="num_of_tree" ColumnName="num_of_tree" />
+          <ScalarProperty Name="owner_contact" ColumnName="owner_contact" />
+          <ScalarProperty Name="owner_name" ColumnName="owner_name" />
+          <ScalarProperty Name="ownership" ColumnName="ownership" />
+          <ScalarProperty Name="tree_status" ColumnName="tree_status" />
+          <ScalarProperty Name="avg_tree_age" ColumnName="avg_tree_age" />
+          <ScalarProperty Name="canopy_in_feet" ColumnName="canopy_in_feet" />
+          <ScalarProperty Name="height_in_feet" ColumnName="height_in_feet" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="lattitude" ColumnName="lattitude" />
+          <ScalarProperty Name="local_name" ColumnName="local_name" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="tree_species" ColumnName="tree_species" />
+          <ScalarProperty Name="ward_no" ColumnName="ward_no" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="details_id" ColumnName="details_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

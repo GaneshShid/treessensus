@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Tree_Sensus_Report_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_User_Details">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_Tree_Details" Relationship="Tree_Sensus_Report_DBModel.user_details_fk" FromRole="tbl_User_Details" ToRole="tbl_Tree_Details" />
+  </EntityType>
+  <EntityContainer Name="Tree_Sensus_Report_DBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_User_Details" EntityType="Self.tbl_User_Details" />
+    <EntitySet Name="tbl_Tree_Details" EntityType="Tree_Sensus_Report_DBModel.tbl_Tree_Details" />
+    <AssociationSet Name="user_details_fk" Association="Tree_Sensus_Report_DBModel.user_details_fk">
+      <End Role="tbl_User_Details" EntitySet="tbl_User_Details" />
+      <End Role="tbl_Tree_Details" EntitySet="tbl_Tree_Details" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbl_Tree_Details">
+    <Key>
+      <PropertyRef Name="details_id" />
+    </Key>
+    <Property Name="details_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="ward_no" Type="Int32" />
+    <Property Name="tree_species" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="photo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="local_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lattitude" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="longitude" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="height_in_feet" Type="Int32" />
+    <Property Name="canopy_in_feet" Type="Int32" />
+    <Property Name="avg_tree_age" Type="Int32" />
+    <Property Name="tree_status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ownership" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="owner_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="owner_contact" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="num_of_tree" Type="Int32" />
+    <NavigationProperty Name="tbl_User_Details" Relationship="Tree_Sensus_Report_DBModel.user_details_fk" FromRole="tbl_Tree_Details" ToRole="tbl_User_Details" />
+  </EntityType>
+  <Association Name="user_details_fk">
+    <End Type="Tree_Sensus_Report_DBModel.tbl_User_Details" Role="tbl_User_Details" Multiplicity="0..1" />
+    <End Type="Tree_Sensus_Report_DBModel.tbl_Tree_Details" Role="tbl_Tree_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_User_Details">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="tbl_Tree_Details">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
